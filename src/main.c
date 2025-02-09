@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:17 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/08 17:45:40 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:38:18 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 #include "push_swap.h"
 
 int	parse_arg(char *p_arg, int *count);
-void	ft_error(char *s, int fd);
-void extract_to_stack(char *p_arg, int **stack,  int *count);
+void extract_to_stack(int argc, char *argv[], int **stack_a);
+void	init_stack(int **stack_a, int **stack_b, int *count);
+void	insert_to_stack(char *p_arg, int **stack_a);
 
 int	main (int argc, char *argv[])
 {
-	int i;
-	char	*p_arg;
 	int count;
-	int *stack_a; // TRY
+	int *stack_a;
+	int *stack_b;
 
 	if (argc < 2)
 	{
@@ -31,72 +31,69 @@ int	main (int argc, char *argv[])
 		return (1);
 	}
 	count = 0;
-	i = 1;
-	stack_a = 0;
-	while (i < argc)
+	if (input_check(argc, argv, &count)  == 1)
 	{
-		p_arg = argv[i];
-		i++;
-		if (parse_arg(p_arg, &count) == 1)
-			return (1);
-		else
-		{
-			extract_to_stack(p_arg, &stack_a, &count);
-		}
+		ft_error("Error input", 2);
+		return (1);
 	}
-	i = 0;
-	while (i < count) // test pour print la stack 
-	{
-		printf("%d\n", stack_a[i]);
-		i++;
-	}
+	init_stack(&stack_a, &stack_b, &count);
+	extract_to_stack(argc, argv, &stack_a);
+	
 	free(stack_a);
 	printf("count :%d\n", count);
 	return (0);
 }
 
-int	parse_arg(char *p_arg, int *count)
+void	init_stack(int **stack_a, int **stack_b, int *count)
 {
-	int i;
-	
-	i = 0;
-	while (p_arg[i])
-	{
-		if (!ft_isdigit(p_arg[i]) && !ft_isspace(p_arg[i]) && p_arg[i] != '-' && p_arg[i] != '+')
-		{
-			ft_error("Error input", 2);
-			return (1);
-		}
-		while (ft_isspace(p_arg[i]))
-			i++;
-		if (p_arg[i] == '+' || p_arg[i] == '-')
-			i++;
-		while (ft_isdigit(p_arg[i]))
-			i++;
-		(*count)++;
-	}
-	printf("count :%d\n", *count);
-	return (0);
+	*stack_a = (int *) ft_calloc(*count, sizeof(int));
+	*stack_b = (int *) ft_calloc(*count, sizeof(int));
 }
 
-void extract_to_stack(char *p_arg, int **stack_a, int *count)
+
+
+void extract_to_stack(int argc, char *argv[], int **stack_a)
 {
+	char	*p_arg;
 	int i;
 	
-	i = 0;
-	*stack_a= malloc(sizeof(int) * (*count));
-	if (!*stack_a)
-		return;
-	while (p_arg[i])   // pas correct 
+	i = 1;
+	while (i < argc)
 	{
-		(*stack_a)[i] = atoi(&p_arg[i]);
+		p_arg = argv[i];
+		
 		i++;
+		insert_to_stack(p_arg, stack_a);
 	}
 }
 
-// a mettre dans utils ? 
-void	ft_error(char *s, int fd)
+void	insert_to_stack(char *p_arg, int **stack_a)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	int i;
+	int j;
+	int	is_neg;
+	(void)stack_a;
+	
+	i = 0;
+	is_neg = 0;
+	while (p_arg[i])
+		{
+			while (ft_isspace(p_arg[i]))
+				i++;
+			if (p_arg[i] == '+' || p_arg[i] == '-')
+			{
+				if (p_arg[i] == '-')
+				{
+					is_neg = 1;
+					j = 0; // debut 
+				}
+				i++;
+			}
+			if (!is_neg)
+				j = 0;
+			(void)j;
+			while (ft_isdigit(p_arg[i]))
+				i++;
+			// exporter le num
+		}
 }

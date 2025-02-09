@@ -6,31 +6,38 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:34:19 by mlaffita          #+#    #+#              #
-#    Updated: 2025/02/05 20:03:08 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/02/09 19:57:10 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# nom de l'executable
 NAME = push_swap
 
+# Source and object diretories
 SRCDIR = src
 OBJDIR = $(SRCDIR)
 
+# Librairies
 LIBFTDIR = ./libft
 LIBFT = $(LIBFTDIR)/libft.a
 PRINTFDIR = ./ft_printf
 PRINTF = $(PRINTFDIR)/libftprintf.a
 
-SRC = main.c
-
-OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
-
+# Compiler and flags
 CC = gcc
-
+CFLAGS = -g3 -Wall -Wextra -Werror
 INCLUDE = -I include
 
 RM = rm -f 
 
-CFLAGS = -g3 -Wall -Wextra -Werror
+vpath %.c \
+	$(SRCDIR) \
+	$(SRCDIR)/parsing \
+	$(SRCDIR)/moves
+
+# Sources and object files
+SRC = main.c utils.c input_check.c
+OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 all: $(LIBFT) $(PRINTF) $(NAME)
 
@@ -39,22 +46,27 @@ $(LIBFT):
 
 $(PRINTF):
 	$(MAKE) all -C $(PRINTFDIR)
-
-$(NAME): $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
-		
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	
+# Compile each .c file to .o		
+$(OBJDIR)/%.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 	
+$(NAME): $(OBJS)
+		$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
+
+# Rule to clean up object files	
 clean:
 		$(RM) $(OBJS)
 		$(MAKE) clean -C $(LIBFTDIR)
 		$(MAKE) clean -C $(PRINTFDIR)
+
+#Rule to clean  up object files and the library
 fclean: clean
 		$(RM) $(NAME)
 		$(MAKE) fclean -C $(LIBFTDIR)
 		$(MAKE) fclean -C $(PRINTFDIR)
 
+# Rule to recompile everything
 re: fclean all
 
 .PHONY: all clean fclean re

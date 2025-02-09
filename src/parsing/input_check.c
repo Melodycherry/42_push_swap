@@ -9,3 +9,49 @@
 /*   Updated: 2025/02/05 17:35:44 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include<stdio.h>
+#include "libft.h"
+#include "push_swap.h"
+
+static int	parse_arg(char *p_arg, int *count);
+
+int	input_check(int argc, char *argv[], int *count)
+{
+	int i;
+	char	*p_arg;
+
+	i = 1;
+	while (i < argc)
+	{
+		p_arg = argv[i];
+		i++;
+		if (parse_arg(p_arg, count) == 1)
+			return (1);
+	}
+	return (0);
+}
+
+static int	parse_arg(char *p_arg, int *count)
+{
+	int i;
+	
+	i = 0;
+	while (p_arg[i])
+	{
+		if (!ft_isdigit(p_arg[i]) && !ft_isspace(p_arg[i]) && p_arg[i] != '-' && p_arg[i] != '+')
+			return (1);
+		while (ft_isspace(p_arg[i]))
+			i++;
+		if (p_arg[i] == '+' || p_arg[i] == '-')
+			i++;
+		while (ft_isdigit(p_arg[i]))
+			i++;
+		(*count)++;
+	}
+	return (0);
+}
+
+// double check 
+
+// int min max ?? 

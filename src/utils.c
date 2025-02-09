@@ -6,13 +6,13 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:39 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/07 13:37:28 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/09 14:00:06 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
 
-// A checker - 
 void	ft_error(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);
