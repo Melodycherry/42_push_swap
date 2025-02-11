@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check.c                                             :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 16:52:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/05 17:35:44 by mlaffita         ###   ########.fr       */
+/*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
+/*   Updated: 2025/02/11 19:00:35 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,61 @@
 #include "libft.h"
 #include "push_swap.h"
 
-static int	parse_arg(char *p_arg, int *count);
-
-int	input_check(int argc, char *argv[], int *count)
+void	init_stack(int **stack_a, int **stack_b, int *count)
 {
-	int i;
-	char	*p_arg;
+	*stack_a = (int *) ft_calloc(*count, sizeof(int));
+	*stack_b = (int *) ft_calloc(*count, sizeof(int));
+	if (!*stack_a || !stack_b)
+		return ;
+}
 
+void extract_arg(int argc, char *argv[], int *stack_a)
+{
+	char	*p_arg;
+	int i;
+	int	j;
+	
 	i = 1;
+	j = 0;
 	while (i < argc)
 	{
 		p_arg = argv[i];
-		if (parse_arg(p_arg, count) == 1)
-			return (1);
+		insert_to_stack(p_arg, stack_a, j);
 		i++;
+		j++;
 	}
-	return (0);
 }
 
-static int	parse_arg(char *p_arg, int *count)
+void	insert_to_stack(char *p_arg, int *stack_a, int j)
 {
 	int i;
+	int	is_neg;
+	char *num;
 	
 	i = 0;
+	is_neg = 0;
+	num = NULL;
 	while (p_arg[i])
 	{
-		if (!ft_isdigit(p_arg[i]) && !ft_isspace(p_arg[i]) && p_arg[i] != '-' && p_arg[i] != '+')
-			return (1);
 		while (ft_isspace(p_arg[i]))
 			i++;
 		if (p_arg[i] == '+' || p_arg[i] == '-')
+		{
+			if (p_arg[i] == '-')
+			{
+				is_neg = 1;
+				num = p_arg + i;
+			}
 			i++;
+		}
+		if (!is_neg)
+			num = p_arg + i;
 		while (ft_isdigit(p_arg[i]))
 			i++;
-		(*count)++;
+		num = ft_strndup(num, p_arg + i - num);
+		if (!num)
+			return ;
+		stack_a[j] = ft_atoi(num);
+		free(num);
 	}
-	return (0);
 }
-
-// double check 
-
-// int min max ?? 

@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 16:54:37 by mlaffita          #+#    #+#              #
-#    Updated: 2025/02/05 19:16:43 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/02/11 18:06:18 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SOURCE = ft_strlen.c \
          ft_atoi.c \
          ft_calloc.c \
          ft_strdup.c \
+		 ft_strndup.c \
          ft_substr.c \
          ft_strjoin.c \
          ft_strtrim.c \

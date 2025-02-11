@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:34:19 by mlaffita          #+#    #+#              #
-#    Updated: 2025/02/09 19:57:10 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/02/11 15:01:10 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ vpath %.c \
 	$(SRCDIR)/moves
 
 # Sources and object files
-SRC = main.c utils.c input_check.c
+SRC = main.c utils.c input_check.c stack.c
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 all: $(LIBFT) $(PRINTF) $(NAME)

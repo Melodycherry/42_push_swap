@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:55:38 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/05 20:21:29 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:54:26 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset( void *b, int c, size_t len);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *src);
+char			*ft_strndup(const char *src, int n);
 unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size);
 int				ft_strlen(const char *str);
