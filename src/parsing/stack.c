@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/11 19:00:35 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/23 12:31:35 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void	insert_to_stack(char *p_arg, int *stack_a, int j)
 	char *num;
 	
 	i = 0;
-	is_neg = 0;
 	num = NULL;
 	while (p_arg[i])
 	{
+		is_neg = 0;
 		while (ft_isspace(p_arg[i]))
 			i++;
 		if (p_arg[i] == '+' || p_arg[i] == '-')
@@ -69,6 +69,7 @@ void	insert_to_stack(char *p_arg, int *stack_a, int j)
 		if (!num)
 			return ;
 		stack_a[j] = ft_atoi(num);
+		j++;
 		free(num);
 	}
 }
