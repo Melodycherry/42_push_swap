@@ -6,14 +6,14 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:51:08 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/23 14:00:05 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/23 17:16:54 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-void	rotate_a(int *stack_a, int *count) // decale d'une position vers le haut la pile a
+void	rotate_a(int *stack_a, int *count)
 {
 	int first = stack_a[0];
 	int i = 0;
@@ -27,7 +27,7 @@ void	rotate_a(int *stack_a, int *count) // decale d'une position vers le haut la
 	ft_putendl_fd("ra", 1);
 }
 
-void	rotate_b(int *stack_b, int *count) // decale d'une position vers le haut la pile b
+void	rotate_b(int *stack_b, int *count)
 {
 	int first = stack_b[0];
 	int i = 0;

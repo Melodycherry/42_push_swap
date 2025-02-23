@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:17 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/23 13:51:29 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/23 17:19:27 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int	main (int argc, char *argv[])
 	init_stack(&stack_a, &stack_b, &count);
 	extract_arg(argc, argv, stack_a);
 	print_stack(stack_a, &count); // pour tester 
-	reverse_rotate_a(stack_a, &count);
-	print_stack(stack_a, &count);
+	print_stack(stack_b, &count); // pour tester 
+	push_b(stack_a, stack_b, &count);
+	print_stack(stack_a, &count); // pour tester 
+	print_stack(stack_b, &count); // pour tester 
 	
 	free(stack_a);
 	free(stack_b);
@@ -45,6 +47,7 @@ int	main (int argc, char *argv[])
 	return (0);
 }
 
+// a degager apres 
 void	print_stack(int *stack_a, int *count)
 {
 	int i;
@@ -54,4 +57,5 @@ void	print_stack(int *stack_a, int *count)
 	{
 		printf("%d, ", stack_a[i++]);
 	}
+	printf("\n");
 }
