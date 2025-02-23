@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:51:08 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/13 16:52:38 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/23 14:00:05 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 void	rotate_a(int *stack_a, int *count) // decale d'une position vers le haut la pile a
 {
-	int temp;
 	int first = stack_a[0];
 	int i = 0;
 
-	while ( i < count) // verif avec le count
+	while ( i < *count)
 	{
 		stack_a[i] = stack_a[i+ 1];
 		i++;	
@@ -30,11 +29,10 @@ void	rotate_a(int *stack_a, int *count) // decale d'une position vers le haut la
 
 void	rotate_b(int *stack_b, int *count) // decale d'une position vers le haut la pile b
 {
-	int temp;
 	int first = stack_b[0];
 	int i = 0;
 
-	while ( i < count) // verif avec le count
+	while ( i < *count)
 	{
 		stack_b[i] = stack_b[i+ 1];
 		i++;	
@@ -45,11 +43,10 @@ void	rotate_b(int *stack_b, int *count) // decale d'une position vers le haut la
 
 void	reverse_rotate_a(int *stack_a, int *count)
 {
-	int temp;
-	int i = count;
-	int last = stack_a[i - 1];
+	int i = *count - 1;
+	int last = stack_a[i];
 
-	while ( i > 0) // verif count
+	while ( i > 0)
 	{
 		stack_a[i] = stack_a[i - 1];
 		i--;	
@@ -60,11 +57,10 @@ void	reverse_rotate_a(int *stack_a, int *count)
 
 void	reverse_rotate_b(int *stack_b, int *count)
 {
-	int temp;
-	int i = count;
-	int last = stack_b[i - 1];
+	int i = *count - 1;
+	int last = stack_b[i];
 
-	while ( i > 0) // verif count
+	while ( i > 0)
 	{
 		stack_b[i] = stack_b[i - 1];
 		i--;	

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:17 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/11 20:36:11 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/23 13:51:29 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	main (int argc, char *argv[])
 	init_stack(&stack_a, &stack_b, &count);
 	extract_arg(argc, argv, stack_a);
 	print_stack(stack_a, &count); // pour tester 
+	reverse_rotate_a(stack_a, &count);
+	print_stack(stack_a, &count);
 	
 	free(stack_a);
 	free(stack_b);

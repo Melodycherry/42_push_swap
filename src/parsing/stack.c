@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/23 12:31:35 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/23 13:39:25 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void extract_arg(int argc, char *argv[], int *stack_a)
 	}
 }
 
-void	insert_to_stack(char *p_arg, int *stack_a, int j)
+void	insert_to_stack(char *p_arg, int *stack_a, int j) // transformer en int* et return stack_a ??
 {
 	int i;
 	int	is_neg;
