@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/26 17:53:33 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:00:40 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	insert_to_stack(char *p_arg, int *stack_a, int *j)
 		num = ft_strndup(num, p_arg + i - num);
 		if (!num)
 			return ;
+		if ( (temp > INT_MAX) || (temp < INT_MIN))
+			ft_error("Error", 2);
 		stack_a[*j] = ft_atoi(num);
 		(*j)++;
 		free(num);
