@@ -6,16 +6,15 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:51:05 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/23 13:46:24 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:26:14 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-void	swap_a(int	*stack_a) // interverti les 2 premiers elements au sommet de la pile a 
+void	swap_a(int	*stack_a)
 {
-	// condition si 1 element ou zero element, ne fait rien 
 	if (stack_a == NULL || stack_a[1] == '\0')
 		return;
 	int temp;
@@ -25,9 +24,8 @@ void	swap_a(int	*stack_a) // interverti les 2 premiers elements au sommet de la 
 	ft_putendl_fd("sa", 1);
 }
 
-void	swap_b(int *stack_b) // interverti les 2 premiers elements au sommet de la pile b
+void	swap_b(int *stack_b)
 {
-	// condition si 1 element ou zero element ne fait rien 
 	if (stack_b == NULL || stack_b[1] == '\0')
 		return;
 	int temp;
@@ -37,28 +35,38 @@ void	swap_b(int *stack_b) // interverti les 2 premiers elements au sommet de la 
 	ft_putendl_fd("sb", 1);
 }
 
-void	push_a(int *stack_a, int *stack_b) // prend le 1er elemen de b et le met sur a
+void	push_a(int *stack_a, int *stack_b, int *count)
 {
-	static int index_a;
-	static int index_b;
-	
-	// si b est vide on ne fait rien 
-	if (stack_b == NULL)
-		return;
-		
-	// decale tt vers le bas pour laisser position 0 libre
-	
-	// mettre b sur le a 
+	int i = 0;
+	int j = *count;
+	while (j > 0)
+	{
+		stack_a[j] = stack_a[j - 1];
+		j--;
+	}
 	stack_a[0] = stack_b[0];
-
-	//decale b vers le haut pour supprimer 1er element 
-	
+	while ( i < *count)
+	{
+		stack_b[i] = stack_b[i + 1];
+		i++;	
+	}
 	ft_putendl_fd("pa", 1);
-	//pa
 }
 
-void	push_b()
+void	push_b(int *stack_a, int *stack_b, int *count)
 {
+	int i = 0;
+	int j = *count;
+	while (j > 0)
+	{
+		stack_b[j] = stack_b[j - 1];
+		j--;
+	}
+	stack_b[0] = stack_a[0];
+	while ( i < *count)
+	{
+		stack_a[i] = stack_a[i + 1];
+		i++;	
+	}
 	ft_putendl_fd("pb", 1);
-	//pb
 }

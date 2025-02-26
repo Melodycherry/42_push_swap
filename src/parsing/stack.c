@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/23 13:39:25 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:19:46 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ void extract_arg(int argc, char *argv[], int *stack_a)
 	while (i < argc)
 	{
 		p_arg = argv[i];
-		insert_to_stack(p_arg, stack_a, j);
+		insert_to_stack(p_arg, stack_a, &j);
 		i++;
-		j++;
 	}
 }
 
-void	insert_to_stack(char *p_arg, int *stack_a, int j) // transformer en int* et return stack_a ??
+void	insert_to_stack(char *p_arg, int *stack_a, int *j)
 {
 	int i;
 	int	is_neg;
@@ -68,8 +67,8 @@ void	insert_to_stack(char *p_arg, int *stack_a, int j) // transformer en int* et
 		num = ft_strndup(num, p_arg + i - num);
 		if (!num)
 			return ;
-		stack_a[j] = ft_atoi(num);
-		j++;
+		stack_a[*j] = ft_atoi(num);
+		(*j)++;
 		free(num);
 	}
 }
