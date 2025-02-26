@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/26 17:19:46 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:53:33 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ void	insert_to_stack(char *p_arg, int *stack_a, int *j)
 	int i;
 	int	is_neg;
 	char *num;
+	int temp; 
 	
 	i = 0;
+	temp = 0;
 	num = NULL;
 	while (p_arg[i])
 	{

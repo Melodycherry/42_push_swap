@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:53:47 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/26 17:34:16 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:51:52 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 # define PUSH_SWAP_H
 
 // Library
+#include <limits.h>
 
 // Fonctions 
 void	ft_error(char *s, int fd);
-int		input_check(int argc, char *argv[], int *count);
 
+// Parsing
+int		input_check(int argc, char *argv[], int *count);
 void 	extract_arg(int argc, char *argv[], int *stack_a);
 void	init_stack(int **stack_a, int **stack_b, int *count);
-void	insert_to_stack(char *p_arg, int *stack_a, int *j);
+void	insert_to_stack(char *p_arg, int *stack_a, int j);
+int	check_double(int *stack, int count);
+static int	parse_arg(char *p_arg, int *count);
 
-//move
+//moves
 void	swap_a(int	*stack_a);
 void	swap_b(int *stack_b);
 void	rotate_a(int *stack_a, int *count);
@@ -35,5 +39,7 @@ void	rotate_rr(int *stack_a, int *stack_b, int *count);
 void	reverse_rrr(int *stack_a, int *stack_b, int *count); 
 void	push_a(int *stack_a, int *stack_b, int *count);
 void	push_b(int *stack_a, int *stack_b, int *count);
+
+//sorting
 
 #endif

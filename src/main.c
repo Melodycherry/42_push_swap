@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:17 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/26 17:34:27 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:52:42 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,33 @@ int	main (int argc, char *argv[])
 
 	if (argc < 2)
 	{
-		ft_error("Error argument", 2);
+		ft_error("Error\n", 2);
 		return (1);
 	}
 	count = 0;
 	if (input_check(argc, argv, &count)  == 1)
 	{
-		ft_error("Error input", 2);
+		ft_error("Error\n", 2);
 		return (1);
 	}
 	init_stack(&stack_a, &stack_b, &count);
 	extract_arg(argc, argv, stack_a);
-	print_stack(stack_a, &count); // pour tester 
-	print_stack(stack_b, &count); // pour tester 
+	if (check_double(stack_a, count))
+    	{
+        	ft_error("Error\n", 2);
+        	return (1);
+    	}
+	// if (count >= 2 && count <= 5)
+		//small_sort()
+	//else if
+		//big_sort()
+
+	// print pour tester 
+	print_stack(stack_a, &count); 
+	print_stack(stack_b, &count); 
 	push_b(stack_a, stack_b, &count);
-	print_stack(stack_a, &count); // pour tester 
-	print_stack(stack_b, &count); // pour tester 
+	print_stack(stack_a, &count); 
+	print_stack(stack_b, &count); 
 	
 	free(stack_a);
 	free(stack_b);

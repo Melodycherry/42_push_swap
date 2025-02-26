@@ -52,6 +52,22 @@ static int	parse_arg(char *p_arg, int *count)
 	return (0);
 }
 
-// double check 
+int	check_double(int *stack, int count)
+{
+	int	i;
+	int	j;
 
-// int min max ?? 
+	i = 0;
+	while (i < count)
+	{
+		j = i + 1;
+		while (j < count)
+		{
+			if (stack[i] == stack[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
