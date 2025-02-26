@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:51:05 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/23 17:17:20 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:37:30 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	push_a(int *stack_a, int *stack_b, int *count)
 	int j = *count;
 	while (j > 0)
 	{
-		stack_a[j] = stack_a[j -1 ];
+		stack_a[j] = stack_a[j - 1];
 		j--;
 	}
 	stack_a[0] = stack_b[0];
 	while ( i < *count)
 	{
-		stack_b[i] = stack_b[i+ 1];
+		stack_b[i] = stack_b[i + 1];
 		i++;	
 	}
 	ft_putendl_fd("pa", 1);
@@ -59,13 +59,13 @@ void	push_b(int *stack_a, int *stack_b, int *count)
 	int j = *count;
 	while (j > 0)
 	{
-		stack_b[j] = stack_b[j -1 ];
+		stack_b[j] = stack_b[j - 1];
 		j--;
 	}
 	stack_b[0] = stack_a[0];
 	while ( i < *count)
 	{
-		stack_a[i] = stack_a[i+ 1];
+		stack_a[i] = stack_a[i + 1];
 		i++;	
 	}
 	ft_putendl_fd("pb", 1);

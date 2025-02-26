@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:53:47 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/23 15:28:53 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:34:16 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		input_check(int argc, char *argv[], int *count);
 
 void 	extract_arg(int argc, char *argv[], int *stack_a);
 void	init_stack(int **stack_a, int **stack_b, int *count);
-void	insert_to_stack(char *p_arg, int *stack_a, int j);
+void	insert_to_stack(char *p_arg, int *stack_a, int *j);
 
 //move
 void	swap_a(int	*stack_a);
