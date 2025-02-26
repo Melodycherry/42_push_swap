@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:17 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/26 17:52:42 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:54:26 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ int	main (int argc, char *argv[])
 		return (1);
 	}
 	init_stack(&stack_a, &stack_b, &count);
-	extract_arg(argc, argv, stack_a);
+	if (extract_arg(argc, argv, stack_a) == 1)
+	{
+		ft_error("Error\n", 2);
+		return (1);
+	}
 	if (check_double(stack_a, count))
     	{
         	ft_error("Error\n", 2);
