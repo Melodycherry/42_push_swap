@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/26 19:51:16 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:31:25 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void	init_stack(int **stack_a, int **stack_b, int *count)
+void	init_stack(t_stack *stack_a, t_stack *stack_b, int count)
 {
-	*stack_a = (int *) ft_calloc(*count, sizeof(int));
-	*stack_b = (int *) ft_calloc(*count, sizeof(int));
-	if (!*stack_a || !*stack_b)
+	stack_a->stack = (int *) ft_calloc(count, sizeof(int));
+	stack_b->stack = (int *) ft_calloc(count, sizeof(int));
+	if (!stack_a->stack || !stack_b->stack)
 		return ;
+	stack_a->count = count;
+	stack_b->count = count;
 }
 
 int extract_arg(int argc, char *argv[], int *stack_a)

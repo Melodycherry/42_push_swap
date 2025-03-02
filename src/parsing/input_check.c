@@ -52,18 +52,18 @@ static int	parse_arg(char *p_arg, int *count)
 	return (0);
 }
 
-int	check_double(int *stack, int count)
+int	check_double(t_stack *stack_a)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < count)
+	while (i < stack_a->count)
 	{
 		j = i + 1;
-		while (j < count)
+		while (j < stack_a->count)
 		{
-			if (stack[i] == stack[j])
+			if (stack_a->stack[i] == stack_a->stack[j])
 				return (1);
 			j++;
 		}

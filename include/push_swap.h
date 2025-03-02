@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:53:47 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/26 19:50:37 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/02 19:11:32 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,33 @@
 // Library
 #include <limits.h>
 
+// Structures
+typedef struct s_stack
+{
+	int *stack;
+	int count;
+	int mini;
+	int maxi;
+}	t_stack;
+
+// typedef struct s_stacks
+// {
+// 	t_stack stack_a;
+// 	t_stack stack_b;
+// } t_stacks;
+
 // Fonctions 
-void	ft_error(char *s, int fd);
+int		ft_error(void);
 long	ft_atol(const char *str);
+int		nbr_mini(int	*stack, int count);
+int		nbr_maxi(int	*stack, int count);
 
 // Parsing
 int		input_check(int argc, char *argv[], int *count);
 int 	extract_arg(int argc, char *argv[], int *stack_a);
-void	init_stack(int **stack_a, int **stack_b, int *count);
+void	init_stack(t_stack *stack_a, t_stack *stack_b, int count);
 int		insert_to_stack(char *p_arg, int *stack_a, int *j);
-int		check_double(int *stack, int count);
+int		check_double(t_stack *stack_a);
 
 //moves
 void	swap_a(int	*stack_a);
@@ -41,5 +58,8 @@ void	push_a(int *stack_a, int *stack_b, int *count);
 void	push_b(int *stack_a, int *stack_b, int *count);
 
 //sorting
+int 	is_sorted(t_stack *stack_a);
+//void  	small_sort(t_stack *stack_a);
+void  small_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
