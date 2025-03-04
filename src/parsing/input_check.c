@@ -32,7 +32,7 @@ int	input_check(int argc, char *argv[], int *count)
 	return (0);
 }
 
-static int	parse_arg(char *p_arg, int *count)
+static int	parse_arg(char *p_arg, int *count) // fonction d'origine 
 {
 	int i;
 	
@@ -58,10 +58,10 @@ int	check_double(t_stack *stack_a)
 	int	j;
 
 	i = 0;
-	while (i < stack_a->count)
+	while (i < stack_a->count_gen)
 	{
 		j = i + 1;
-		while (j < stack_a->count)
+		while (j < stack_a->count_gen)
 		{
 			if (stack_a->stack[i] == stack_a->stack[j])
 				return (1);

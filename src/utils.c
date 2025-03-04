@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:39 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/02 19:07:34 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:55:27 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,63 +20,64 @@ int	ft_error(void) // modifie ok
 	return(1);
 }
 
-long	ft_atol(const char *str)
+int is_sorted(t_stack *stack_a)
 {
-	int	i;
-	int	signe;
-	long	result;
+	int i;
 
 	i = 0;
-	signe = 1;
-	result = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		i++;
-	if (str[i] == '-')
+	while ( i < stack_a->count_gen - 1)
 	{
-		signe = -1;
+		if (stack_a->stack[i] > stack_a->stack[i + 1])
+			return (0);
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (signe * result);
+	return(1);
 }
 
 // Fonction pour trouver le minimum d'un tableau
-int	nbr_mini(int *stack, int count)
+int nbr_mini(t_stack *stack)
 {
 	int i;
 	int mini;
-	
+
 	i = 0;
-	mini = stack[i];
-	while ( i < count)
+	mini = stack->stack[i];
+	while (i < stack->count_stck)
 	{
-		if (stack[i] < mini )
-			mini = stack[i];
+		if(stack->stack[i] < mini)
+			mini = stack->stack[i];
 		i++;
 	}
 	return (mini);
 }
 
 // Fonction pour trouver le maximum d'un tableau
-int nbr_maxi(int *stack, int count)
+int nbr_maxi(t_stack *stack)
 {
 	int i;
 	int maxi;
 
 	i = 0;
-	maxi = stack[i];
-	while (i < count)
+	maxi = stack->stack[i];
+	while (i < stack->count_stck)
 	{
-		if (stack[i] > maxi )
-			maxi = stack[i];
+		if (stack->stack[i] > maxi )
+			maxi = stack->stack[i];
 		i++;
 	}
 	return (maxi);
+}
+
+void nbr_mini_index(t_stack *stack)
+{
+    int i;
+    
+    i = 0;
+    while (i < stack->count_stck)
+    {
+        if (stack->stack[i] == stack->mini)
+			break;
+        i++;
+    }
+	stack->min_index = i;
 }

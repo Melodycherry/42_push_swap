@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/02 15:31:25 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:46:21 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	init_stack(t_stack *stack_a, t_stack *stack_b, int count)
 	stack_b->stack = (int *) ft_calloc(count, sizeof(int));
 	if (!stack_a->stack || !stack_b->stack)
 		return ;
-	stack_a->count = count;
-	stack_b->count = count;
+	stack_a->count_gen = count;
+	stack_b->count_gen = count;
+	stack_a->count_stck = count;
+	stack_b->count_stck = 0;
 }
 
 int extract_arg(int argc, char *argv[], int *stack_a)

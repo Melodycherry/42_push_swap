@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mv_combined.c                                      :+:      :+:    :+:   */
+/*   mv_rot.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 14:51:01 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/04 15:19:53 by mlaffita         ###   ########.fr       */
+/*   Created: 2025/02/05 14:51:08 by mlaffita          #+#    #+#             */
+/*   Updated: 2025/03/04 22:41:36 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-void	swap_ss(t_stack *stack_a, t_stack *stack_b)
+void	rotate(t_stack *stack)
 {
-	swap_a(stack_a);
-	swap_b(stack_b);
-	ft_putendl_fd("ss", 1);
+	int first = stack->stack[0];
+	int i = 0;
+
+	while ( i < stack->count_stck)
+	{
+		stack->stack[i] = stack->stack[i+ 1];
+		i++;	
+	}
+	stack->stack[i - 1] = first;
 }
 
-void	rotate_rr(t_stack *stack_a, t_stack *stack_b)
+void	rotate_a(t_stack *stack_a)
 {
-	rotate_a(stack_a);
-	rotate_b(stack_b);
-	ft_putendl_fd("rr", 1);
+	rotate(stack_a);
+	ft_putendl_fd("ra", 1);
 }
 
-void	reverse_rrr(t_stack *stack_a, t_stack *stack_b)
+void	rotate_b(t_stack *stack_b)
 {
-	reverse_rotate_a(stack_a);
-	reverse_rotate_b(stack_b);
-	ft_putendl_fd("rrr", 1);
+	rotate(stack_b);
+	ft_putendl_fd("rb", 1);
 }

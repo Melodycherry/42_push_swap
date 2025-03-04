@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:17 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/02 19:11:57 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:11:34 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	main (int argc, char *argv[])
     	return(ft_error());
 
 	//test print mini maxi 
-	// printf("mini : %d\n", nbr_mini(stack_a.stack, stack_a.count));
+	// printf("mini : %d\n", nbr_mini(&stack_a));
+	// printf("mini index : %d\n", nbr_mini_index(&stack_a));
 	// printf("maxi : %d\n", nbr_maxi(stack_a.stack, stack_a.count));
 	
 	if (count >= 2 && count <= 5)

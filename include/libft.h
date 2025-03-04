@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:55:38 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/11 17:54:26 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:49:59 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 t_list			*ft_lstnew(void	*content);
 int				ft_lstsize(t_list *lst);
+
+//PERSO
+long			ft_atol(const char *str);
 #endif
