@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:34:19 by mlaffita          #+#    #+#              #
-#    Updated: 2025/02/23 15:25:52 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/03/04 15:30:17 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,11 @@ RM = rm -f
 vpath %.c \
 	$(SRCDIR) \
 	$(SRCDIR)/parsing \
+	$(SRCDIR)/sort \
 	$(SRCDIR)/moves
 
 # Sources and object files
-SRC = main.c utils.c input_check.c stack.c mv_rot_rev.c mv_push_swap.c mv_combined.c 
+SRC = main.c utils.c input_check.c stack.c mv_rot.c mv_rev_rot.c mv_swap.c mv_push.c mv_combined.c small_sort.c
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 all: $(LIBFT) $(PRINTF) $(NAME)

@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 16:54:37 by mlaffita          #+#    #+#              #
-#    Updated: 2025/02/11 18:06:18 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/03/04 19:44:49 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SOURCE = ft_strlen.c \
 		 ft_striteri.c \
 		 ft_strmapi.c \
 		 ft_split.c \
+		 ft_atol.c \
 
 SRCBONUS = 	ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \
