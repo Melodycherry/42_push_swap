@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/04 15:46:21 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/05 15:50:17 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void	init_stack(t_stack *stack_a, t_stack *stack_b, int count)
+int	init_stack(t_stack *stack_a, t_stack *stack_b, int count)
 {
 	stack_a->stack = (int *) ft_calloc(count, sizeof(int));
 	stack_b->stack = (int *) ft_calloc(count, sizeof(int));
-	if (!stack_a->stack || !stack_b->stack)
-		return ;
+	stack_a->stack_radix = (int *) ft_calloc(count, sizeof(int));
+	stack_b->stack_radix = (int *) ft_calloc(count, sizeof(int));
+	stack_a->stack_sort = (int *) ft_calloc(count, sizeof(int));
+	stack_b->stack_sort = NULL;
+	if (!stack_a->stack || !stack_b->stack
+		|| !stack_a->stack_radix || !stack_b->stack_radix || !stack_a->stack_sort)
+		return (1);
 	stack_a->count_gen = count;
 	stack_b->count_gen = count;
 	stack_a->count_stck = count;
 	stack_b->count_stck = 0;
+	return (0);
 }
 
 int extract_arg(int argc, char *argv[], int *stack_a)

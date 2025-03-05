@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:53:47 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/04 20:03:49 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:48:57 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,22 @@
 
 // Library
 #include <limits.h>
+#include "ft_printf.h"
+#include "libft.h"
+
+typedef enum e_bool
+{
+	FALSE, // car il sait que 1er valeur est 0
+	TRUE // next valeur est 1 
+	// 3 ... etc ... 
+}t_bool;
 
 // Structures
 typedef struct s_stack
 {
-	int *stack;
+	int *stack; // initial 
+	int	*stack_sort; // juste pour trier valeur
+	int	*stack_radix; // avec les index pour sort 
 	int count_gen;
 	int	count_stck;
 	int mini;
@@ -38,7 +49,7 @@ int 	is_sorted(t_stack *stack_a);
 int		input_check(int argc, char *argv[], int *count);
 int 	extract_arg(int argc, char *argv[], int *stack_a);
 char	*extract_number(char *p_arg, int *i, int *is_neg);
-void	init_stack(t_stack *stack_a, t_stack *stack_b, int count);
+int	init_stack(t_stack *stack_a, t_stack *stack_b, int count);
 int		insert_to_stack(char *p_arg, int *stack_a, int *j);
 int		check_double(t_stack *stack_a);
 
@@ -64,5 +75,6 @@ void 	sort_3(t_stack *stack_a);
 void 	sort_4(t_stack *stack_a, t_stack *stack_b);
 void 	sort_5(t_stack *stack_a, t_stack *stack_b);
 void  	small_sort(t_stack *stack_a, t_stack *stack_b);
+void	big_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

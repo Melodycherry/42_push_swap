@@ -32,7 +32,7 @@ int	input_check(int argc, char *argv[], int *count)
 	return (0);
 }
 
-static int	parse_arg(char *p_arg, int *count) // fonction d'origine 
+static int	parse_arg(char *p_arg, int *count)
 {
 	int i;
 	
