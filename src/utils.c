@@ -6,17 +6,18 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:39 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/05 14:54:48 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 16:28:16 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-int	ft_error(void)
+int	ft_error(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_putchar_fd('\n', 2);
+	free_all(stack_a, stack_b);
 	return(1);
 }
 
