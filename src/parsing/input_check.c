@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 17:49:00 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/09 18:08:02 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:48:58 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	input_check(int argc, char *argv[], int *count)
 	i = 1;
 	while (i < argc)
 	{
+		if (!argv[i][0])
+			return (1);
 		p_arg = argv[i];
 		if (parse_arg(p_arg, count) == 1)
 			return (1);
@@ -54,6 +56,8 @@ static int	parse_arg(char *p_arg, int *count)
 			i++;
 		(*count)++;
 	}
+	if (p_arg[i - 1] == ' ')
+		(*count)--;
 	return (0);
 }
 

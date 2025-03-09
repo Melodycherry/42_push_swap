@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/09 17:46:59 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 20:01:11 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	extract_arg(int argc, char *argv[], int *stack_a)
 	j = 0;
 	while (i < argc)
 	{
+		if (!argv[i][0])
+			return (1);
 		p_arg = argv[i];
 		if (insert_to_stack(p_arg, stack_a, &j) == 1)
 			return (1);
@@ -95,9 +97,12 @@ int	insert_to_stack(char *p_arg, int *stack_a, int *j)
 	num = NULL;
 	while (p_arg[i])
 	{
+		num = NULL;
 		num = extract_number(p_arg, &i, &is_neg);
 		if (!num)
 			return (1);
+		if (!num[0])
+			break ;
 		temp = ft_atol(num);
 		free(num);
 		if ((temp > INT_MAX) || (temp < INT_MIN))
