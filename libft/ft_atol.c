@@ -6,14 +6,14 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:43:53 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/04 19:44:15 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:59:01 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long	ft_atol(const char *str)
 {
-	int	i;
-	int	signe;
+	int		i;
+	int		signe;
 	long	result;
 
 	i = 0;

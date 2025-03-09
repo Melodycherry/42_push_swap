@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check.c                                             :+:      :+:    :+:   */
+/*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 16:52:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/02/05 17:35:44 by mlaffita         ###   ########.fr       */
+/*   Created: 2025/03/09 17:49:00 by mlaffita          #+#    #+#             */
+/*   Updated: 2025/03/09 18:08:02 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	parse_arg(char *p_arg, int *count);
 
 int	input_check(int argc, char *argv[], int *count)
 {
-	int i;
+	int		i;
 	char	*p_arg;
 
 	i = 1;
@@ -34,17 +34,22 @@ int	input_check(int argc, char *argv[], int *count)
 
 static int	parse_arg(char *p_arg, int *count)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (p_arg[i])
 	{
-		if (!ft_isdigit(p_arg[i]) && !ft_isspace(p_arg[i]) && p_arg[i] != '-' && p_arg[i] != '+')
+		if (!ft_isdigit(p_arg[i]) && !ft_isspace(p_arg[i])
+			&& p_arg[i] != '-' && p_arg[i] != '+')
 			return (1);
 		while (ft_isspace(p_arg[i]))
 			i++;
 		if (p_arg[i] == '+' || p_arg[i] == '-')
+		{
+			if (!ft_isdigit(p_arg[i + 1]))
+				return (1);
 			i++;
+		}
 		while (ft_isdigit(p_arg[i]))
 			i++;
 		(*count)++;

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:51:08 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/07 17:24:34 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:32:57 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 void	reverse_rotate(t_stack *stack)
 {
-	int i = stack->count_stck - 1;
-	int last = stack->stack[i];
+	int	i;
+	int	last;
 
-	while ( i > 0)
+	i = stack->count_stck - 1;
+	last = stack->stack[i];
+	while (i > 0)
 	{
 		stack->stack[i] = stack->stack[i - 1];
-		i--;	
+		i--;
 	}
 	stack->stack[i] = last;
 }

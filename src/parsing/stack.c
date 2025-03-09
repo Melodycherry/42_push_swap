@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/09 16:53:50 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:46:59 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	init_stack(t_stack *stack_a, t_stack *stack_b, int count)
 	stack_a->stack_sort = (int *) ft_calloc(count, sizeof(int));
 	stack_b->stack_sort = (int *) ft_calloc(count, sizeof(int));
 	if (!stack_a->stack || !stack_b->stack
-		|| !stack_a->stack_radix || !stack_b->stack_radix || !stack_a->stack_sort)
+		|| !stack_a->stack_radix || !stack_b->stack_radix
+		|| !stack_a->stack_sort)
 		return (1);
 	stack_a->count_gen = count;
 	stack_b->count_gen = count;
@@ -38,12 +39,12 @@ int	init_stack(t_stack *stack_a, t_stack *stack_b, int count)
 	return (0);
 }
 
-int extract_arg(int argc, char *argv[], int *stack_a)
+int	extract_arg(int argc, char *argv[], int *stack_a)
 {
 	char	*p_arg;
-	int i;
-	int	j;
-	
+	int		i;
+	int		j;
+
 	i = 1;
 	j = 0;
 	while (i < argc)
@@ -58,37 +59,37 @@ int extract_arg(int argc, char *argv[], int *stack_a)
 
 char	*extract_number(char *p_arg, int *i, int *is_neg)
 {
-		char *num;
-		char *dup;
+	char	*num;
+	char	*dup;
 
-		num = NULL;
-		*is_neg = 0;
-		while (ft_isspace(p_arg[*i]))
-			(*i)++;
-		if (p_arg[*i] == '+' || p_arg[*i] == '-')
+	num = NULL;
+	*is_neg = 0;
+	while (ft_isspace(p_arg[*i]))
+		(*i)++;
+	if (p_arg[*i] == '+' || p_arg[*i] == '-')
+	{
+		if (p_arg[*i] == '-')
 		{
-			if (p_arg[*i] == '-')
-			{
-				*is_neg = 1;
-				num = p_arg + *i;
-			}
-			(*i)++;
-		}
-		if (!(*is_neg))
+			*is_neg = 1;
 			num = p_arg + *i;
-		while (ft_isdigit(p_arg[*i]))
-			(*i)++;
-		dup = ft_strndup(num, p_arg + *i - num);
-		return (dup);
+		}
+		(*i)++;
+	}
+	if (!(*is_neg))
+		num = p_arg + *i;
+	while (ft_isdigit(p_arg[*i]))
+		(*i)++;
+	dup = ft_strndup(num, p_arg + *i - num);
+	return (dup);
 }
 
 int	insert_to_stack(char *p_arg, int *stack_a, int *j)
 {
-	int i;
-	int	is_neg;
-	char *num;
-	long temp; 
-	
+	int		i;
+	int		is_neg;
+	char	*num;
+	long	temp;
+
 	i = 0;
 	temp = 0;
 	num = NULL;
@@ -99,7 +100,7 @@ int	insert_to_stack(char *p_arg, int *stack_a, int *j)
 			return (1);
 		temp = ft_atol(num);
 		free(num);
-		if ( (temp > INT_MAX) || (temp < INT_MIN))
+		if ((temp > INT_MAX) || (temp < INT_MIN))
 			return (1);
 		stack_a[*j] = (int)temp;
 		(*j)++;
