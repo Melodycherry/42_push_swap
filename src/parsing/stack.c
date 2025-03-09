@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:54:09 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/04 15:46:21 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 16:53:50 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,28 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void	init_stack(t_stack *stack_a, t_stack *stack_b, int count)
+int	init_stack(t_stack *stack_a, t_stack *stack_b, int count)
 {
 	stack_a->stack = (int *) ft_calloc(count, sizeof(int));
 	stack_b->stack = (int *) ft_calloc(count, sizeof(int));
-	if (!stack_a->stack || !stack_b->stack)
-		return ;
+	stack_a->stack_radix = (int *) ft_calloc(count, sizeof(int));
+	stack_b->stack_radix = (int *) ft_calloc(count, sizeof(int));
+	stack_a->stack_sort = (int *) ft_calloc(count, sizeof(int));
+	stack_b->stack_sort = (int *) ft_calloc(count, sizeof(int));
+	if (!stack_a->stack || !stack_b->stack
+		|| !stack_a->stack_radix || !stack_b->stack_radix || !stack_a->stack_sort)
+		return (1);
 	stack_a->count_gen = count;
 	stack_b->count_gen = count;
 	stack_a->count_stck = count;
 	stack_b->count_stck = 0;
+	stack_a->maxi = 0;
+	stack_b->maxi = 0;
+	stack_a->mini = 0;
+	stack_b->mini = 0;
+	stack_a->min_index = 0;
+	stack_b->min_index = 0;
+	return (0);
 }
 
 int extract_arg(int argc, char *argv[], int *stack_a)
@@ -47,6 +59,7 @@ int extract_arg(int argc, char *argv[], int *stack_a)
 char	*extract_number(char *p_arg, int *i, int *is_neg)
 {
 		char *num;
+		char *dup;
 
 		num = NULL;
 		*is_neg = 0;
@@ -65,7 +78,8 @@ char	*extract_number(char *p_arg, int *i, int *is_neg)
 			num = p_arg + *i;
 		while (ft_isdigit(p_arg[*i]))
 			(*i)++;
-		return (ft_strndup(num, p_arg + *i - num));
+		dup = ft_strndup(num, p_arg + *i - num);
+		return (dup);
 }
 
 int	insert_to_stack(char *p_arg, int *stack_a, int *j)

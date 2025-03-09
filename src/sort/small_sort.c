@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:41:03 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/04 22:31:42 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:25:50 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void move_min_to_top(t_stack *stack_a)
     }
 }
 
-void sort_3(t_stack *stack_a) // ok all good pour de vrai teste again 
+void sort_3(t_stack *stack_a)
 {
 	if (stack_a->stack[0] == stack_a->mini && stack_a->stack[1] == stack_a->maxi)
 	{
@@ -45,20 +45,9 @@ void sort_3(t_stack *stack_a) // ok all good pour de vrai teste again
 		rotate_a(stack_a);
 		swap_a(stack_a);
 	}
-	// if (stack_a->stack[0] == stack_a->mini && stack_a->stack[1] == stack_a->maxi)
-	// 	reverse_rotate_a(stack_a);
-	// else if (stack_a->stack[0] == stack_a->maxi)
-	// 	rotate_a(stack_a);
-	// if (stack_a->stack[0] != stack_a->mini && stack_a->stack[0] != stack_a->maxi)
-	// {
-	// 	if (stack_a->stack[1] == stack_a->mini)
-	// 		swap_a(stack_a);
-	// 	else
-	// 		reverse_rotate_a(stack_a);
-	// }	
 }
 
-void sort_4(t_stack *stack_a, t_stack *stack_b) // ok all good pour de vrai teste again 
+void sort_4(t_stack *stack_a, t_stack *stack_b)
 {
 	move_min_to_top(stack_a);
 	push_b(stack_a, stack_b);

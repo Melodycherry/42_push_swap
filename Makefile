@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:34:19 by mlaffita          #+#    #+#              #
-#    Updated: 2025/03/04 15:30:17 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/03/07 17:45:48 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = push_swap
 
 # Source and object diretories
 SRCDIR = src
-OBJDIR = $(SRCDIR)
+OBJDIR = obj
 
 # Librairies
 LIBFTDIR = ./libft
@@ -37,7 +37,7 @@ vpath %.c \
 	$(SRCDIR)/moves
 
 # Sources and object files
-SRC = main.c utils.c input_check.c stack.c mv_rot.c mv_rev_rot.c mv_swap.c mv_push.c mv_combined.c small_sort.c
+SRC = main.c utils.c input_check.c stack.c mv_rot.c mv_rev_rot.c mv_swap.c mv_push.c mv_combined.c small_sort.c big_sort.c free_all.c
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 all: $(LIBFT) $(PRINTF) $(NAME)
@@ -50,6 +50,7 @@ $(PRINTF):
 	
 # Compile each .c file to .o		
 $(OBJDIR)/%.o: %.c
+		@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 	
 $(NAME): $(OBJS)
@@ -60,6 +61,7 @@ clean:
 		$(RM) $(OBJS)
 		$(MAKE) clean -C $(LIBFTDIR)
 		$(MAKE) clean -C $(PRINTFDIR)
+		@rm -rf $(OBJDIR)
 
 #Rule to clean  up object files and the library
 fclean: clean

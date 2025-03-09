@@ -6,17 +6,18 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:39 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/04 19:55:27 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 16:28:16 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-int	ft_error(void) // modifie ok 
+int	ft_error(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_putchar_fd('\n', 2);
+	free_all(stack_a, stack_b);
 	return(1);
 }
 
@@ -34,7 +35,6 @@ int is_sorted(t_stack *stack_a)
 	return(1);
 }
 
-// Fonction pour trouver le minimum d'un tableau
 int nbr_mini(t_stack *stack)
 {
 	int i;
@@ -51,7 +51,6 @@ int nbr_mini(t_stack *stack)
 	return (mini);
 }
 
-// Fonction pour trouver le maximum d'un tableau
 int nbr_maxi(t_stack *stack)
 {
 	int i;
