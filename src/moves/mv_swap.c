@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:51:05 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/07 17:24:48 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:35:53 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 void	swap(t_stack *stack)
 {
+	int	temp;
+
 	if (stack->stack == NULL || stack->stack[1] == '\0')
-		return;
-	int temp;
+		return ;
 	temp = stack->stack[0];
 	stack->stack[0] = stack->stack[1];
 	stack->stack[1] = temp;
