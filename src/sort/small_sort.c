@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:41:03 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/09 17:45:43 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/30 16:08:40 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 void	move_min_to_top(t_stack *stack_a)
 {
+	// verif si index mini est dan sla premiere moitie de la pile 
 	if (stack_a->min_index <= (stack_a->count_stck / 2))
 	{
+		// rotate jusqu'a ce que mini soit en haut 
 		while (stack_a->stack[0] != stack_a->mini)
 			rotate_a(stack_a);
 	}
 	else
-	{
+	{	// rotation inverse si mini est dans la seconde moitié
 		while (stack_a->stack[0] != stack_a->mini)
 			reverse_rotate_a(stack_a);
 	}

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:39 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/09 18:20:03 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/30 16:09:35 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void	nbr_mini_index(t_stack *stack)
 			break ;
 		i++;
 	}
-	stack->min_index = i;
+	stack->min_index = i; // mise a jour de l'index du plus petit element 
 }
