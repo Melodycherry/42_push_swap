@@ -117,3 +117,8 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b)
 	fill_stack_radix(stack_a);
 	radix(stack_a, stack_b);
 }
+
+// Copie track a ( pile d'origine ) vers stack sort ( la version triable de la pile )
+// Tri à bulle sur stack sort : stack_sort contient les éléments de stack_a->stack triés par ordre croissant
+// Remplissage de stack radix : attribue à chaque élément de stack_a->stack son index dans le tableau trié stack_sort
+// Radix : element triés en fonction de leurs bits. Si 1, gardé dans stack a , sinon push vers b ( puis reinsertion de tt dans stack a )
