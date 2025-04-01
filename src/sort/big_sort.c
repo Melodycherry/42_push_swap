@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:40:57 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/09 17:53:04 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/30 20:09:37 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,12 @@ void	radix(t_stack *stack_a, t_stack *stack_b)
 
 void	big_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_memcpy(stack_a->stack_sort, stack_a->stack,
-		(stack_a->count_gen * sizeof(int)));
-	bubble_sort(stack_a);
-	fill_stack_radix(stack_a);
-	radix(stack_a, stack_b);
+	if (!is_sorted(stack_a))
+	{
+		ft_memcpy(stack_a->stack_sort, stack_a->stack,
+			(stack_a->count_gen * sizeof(int)));
+		bubble_sort(stack_a);
+		fill_stack_radix(stack_a);
+		radix(stack_a, stack_b);
+	}
 }

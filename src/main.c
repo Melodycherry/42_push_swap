@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:17 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/09 19:49:25 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/30 20:17:35 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char *argv[])
 
 	init(&stack_a, &stack_b);
 	if (argc < 2)
-		return (ft_error(&stack_a, &stack_b));
+		return (1);
 	count = 0;
 	if (input_check(argc, argv, &count) == 1)
 		return (ft_error(&stack_a, &stack_b));

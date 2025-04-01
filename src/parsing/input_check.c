@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 17:49:00 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/09 19:48:58 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/30 19:50:35 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static int	parse_arg(char *p_arg, int *count)
 	}
 	if (p_arg[i - 1] == ' ')
 		(*count)--;
+	if (!*count)
+		return (1);
 	return (0);
 }
 
