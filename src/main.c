@@ -6,16 +6,13 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:05:17 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/04/01 19:03:32 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/04/06 13:05:29 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
 #include "libft.h"
 #include "push_swap.h"
-
-void	print_stack(t_stack *stack);
-void	print_stack_radix(t_stack *stack);
 
 void	init(t_stack *stack_a, t_stack *stack_b)
 {
