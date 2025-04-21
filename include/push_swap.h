@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:53:47 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/04/06 13:16:50 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:57:40 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	sort_5(t_stack *stack_a, t_stack *stack_b);
 void	small_sort(t_stack *stack_a, t_stack *stack_b);
 void	big_sort(t_stack *stack_a, t_stack *stack_b);
 
+void	print_stack_radix(t_stack *stack);
 #endif
